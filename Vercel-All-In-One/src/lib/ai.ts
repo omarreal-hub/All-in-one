@@ -28,7 +28,7 @@ export type GeneratedTaskPlan = z.infer<typeof TaskGenerationSchema>;
 export async function generatePlanWithAI(
     prompt: string,
     modelId: string = 'smart',
-    primaryModelId: string = 'google:gemini-2.5-flash',
+    primaryModelId: string = 'google:gemini-1.5-flash',
     fallbackModelId: string = 'groq:llama3-8b-8192'
 ): Promise<GeneratedTaskPlan> {
     const systemMessage = `
@@ -53,7 +53,7 @@ export async function generatePlanWithAI(
 function getModelById(id: string): LanguageModelV1 {
     if (id.startsWith('groq:')) return groq(id.replace('groq:', ''));
     if (id.startsWith('google:')) return google(id.replace('google:', ''));
-    return google('gemini-2.5-flash');
+    return google('gemini-1.5-flash');
 }
 
 async function _generate(model: LanguageModelV1, system: string, prompt: string, modelNameLog: string) {

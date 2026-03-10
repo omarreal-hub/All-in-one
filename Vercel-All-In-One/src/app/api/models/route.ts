@@ -45,7 +45,7 @@ export async function GET() {
         // Provide defaults just in case APIs fail
         if (models.length === 0) {
             models.push(
-                { id: 'google:gemini-2.5-flash', name: 'Gemini 2.5 Flash', provider: 'Google' },
+                { id: 'google:gemini-1.5-flash', name: 'Gemini 1.5 Flash', provider: 'Google' },
                 { id: 'groq:llama3-8b-8192', name: 'LLaMA3 8B', provider: 'Groq' }
             );
         }
@@ -54,7 +54,7 @@ export async function GET() {
     } catch (error) {
         return NextResponse.json({
             error: 'Failed to fetch models', models: [
-                { id: 'google:gemini-2.5-flash', name: 'Gemini 2.5 Flash', provider: 'Google' },
+                { id: 'google:gemini-1.5-flash', name: 'Gemini 1.5 Flash', provider: 'Google' },
                 { id: 'groq:llama3-8b-8192', name: 'LLaMA3 8B', provider: 'Groq' }
             ]
         });

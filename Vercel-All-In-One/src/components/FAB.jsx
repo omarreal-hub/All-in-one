@@ -11,11 +11,11 @@ export default function FAB({ showSnackbar, onProjectGenerated }) {
 
   // Persisted Settings
   const [selectedModel, setSelectedModel] = useState(() => localStorage.getItem('ai_selected_model') || 'smart');
-  const [primaryModel, setPrimaryModel] = useState(() => localStorage.getItem('ai_primary_model') || 'google:gemini-2.5-flash');
+  const [primaryModel, setPrimaryModel] = useState(() => localStorage.getItem('ai_primary_model') || 'google:gemini-1.5-flash');
   const [fallbackModel, setFallbackModel] = useState(() => localStorage.getItem('ai_fallback_model') || 'groq:llama3-8b-8192');
   const [visibleModelIds, setVisibleModelIds] = useState(() => {
     const saved = localStorage.getItem('ai_visible_models');
-    return saved ? JSON.parse(saved) : ['groq:llama3-8b-8192', 'google:gemini-2.5-flash', 'groq:deepseek-r1-distill-llama-70b'];
+    return saved ? JSON.parse(saved) : ['groq:llama3-8b-8192', 'google:gemini-1.5-flash', 'groq:deepseek-r1-distill-llama-70b'];
   });
 
   const dropdownRef = useRef(null);
